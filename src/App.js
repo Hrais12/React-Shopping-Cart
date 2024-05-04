@@ -4,6 +4,7 @@ import groceries from "./models/list.js";
 
 import List from "./components/List";
 import ShoppingCart from "./components/ShoppingCart";
+import { symbols } from "./models/symbols.js";
 
 function App() {
   let [shopCart, setShopCart] = useState([]);
@@ -77,6 +78,8 @@ function App() {
         currentList={currentList}
         next={nextList}
         back={backList}
+        iconBack={symbols.left}
+        iconNext={symbols.right}
       />
 
       <ShoppingCart

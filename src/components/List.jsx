@@ -1,11 +1,13 @@
 import React from "react";
 
-function List({ currentList, action, next, back }) {
+function List({ currentList, action, next, back, iconBack, iconNext }) {
   return (
     <div className="groceries">
       <h1>Based on your recent browsing</h1>
       <ul className="list">
-        <button onClick={back}>back</button>
+        <button onClick={back} className="carousel">
+          {iconBack}
+        </button>
         {currentList.map((grocery, index) => (
           <div className="result">
             <li key={index}>
@@ -25,7 +27,9 @@ function List({ currentList, action, next, back }) {
             </li>
           </div>
         ))}
-        <button onClick={next}>next</button>
+        <button onClick={next} className="carousel">
+          {iconNext}
+        </button>
       </ul>
     </div>
   );
