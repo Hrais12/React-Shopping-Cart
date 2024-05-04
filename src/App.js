@@ -12,10 +12,16 @@ function App() {
     setShopCart([...shopCart, item]);
   };
 
+  const removeItem = (index) => {
+    const updatedCart = [...shopCart];
+    updatedCart.splice(index, 1); //return the deleted item
+    setShopCart(updatedCart); // the updated array
+  };
+
   return (
     <div className="App">
       <List groceries={groceries} action={addItem} />
-      <ShoppingCart shopCart={shopCart} />
+      <ShoppingCart shopCart={shopCart} action={removeItem} />
     </div>
   );
 }

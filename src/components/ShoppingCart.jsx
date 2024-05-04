@@ -1,6 +1,6 @@
 import React from "react";
 
-function ShoppingCart({ shopCart }) {
+function ShoppingCart({ shopCart, action }) {
   return (
     <div className="shoppCart">
       <h1>Shopping Cart</h1>
@@ -19,7 +19,7 @@ function ShoppingCart({ shopCart }) {
                   {cart.name} <br></br>
                 </span>
 
-                <button>Remove</button>
+                <button onClick={() => action(index)}>Remove</button>
                 <div>
                   <label>
                     <input
