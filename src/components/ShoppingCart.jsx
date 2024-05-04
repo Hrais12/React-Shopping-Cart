@@ -1,6 +1,6 @@
 import React from "react";
 
-function ShoppingCart({ shopCart, action }) {
+function ShoppingCart({ shopCart, action, total, countItems }) {
   return (
     <div className="shoppCart">
       <h1>Shopping Cart</h1>
@@ -45,7 +45,10 @@ function ShoppingCart({ shopCart, action }) {
       </ul>
 
       <div className="checkout">
-        <b>$20 subtotal 3 items</b>
+        <b>
+          {" "}
+          ${total} subtotal {countItems} items
+        </b>
         <button className="checkoutBtn">Check out</button>
       </div>
     </div>
