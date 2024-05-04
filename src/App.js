@@ -21,7 +21,7 @@ function App() {
     const deletedItem = updatedCart.splice(index, 1); //return the deleted item array
     console.log(deletedItem);
     // Calculate the difference between the current total and the price of the removed item
-    const deletedItemPrice = parseFloat(deletedItem[0].price.replace("$", ""));
+    const deletedItemPrice = Number(deletedItem[0].price.replace("$", ""));
     const newTotal = total - deletedItemPrice;
     setShopCart(updatedCart); // the updated array
     setTotal(newTotal);
@@ -31,9 +31,9 @@ function App() {
   const totalPrice = (item) => {
     let currentTotal = 0;
     shopCart.map(
-      (cart) => (currentTotal += parseFloat(cart.price.replace("$", "")))
+      (cart) => (currentTotal += Number(cart.price.replace("$", "")))
     );
-    return currentTotal + parseFloat(item.price.replace("$", ""));
+    return currentTotal + Number(item.price.replace("$", ""));
   };
 
   return (
