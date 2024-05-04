@@ -1,6 +1,111 @@
 .App {
   text-align: center;
+  /* display: flex; */
 }
+
+.groceries{
+  border: solid black;
+  width: 90vw;
+  margin: 20px;
+ 
+  
+}
+.list{
+  list-style: none;
+  display: flex;
+  width: 80vw;
+  text-align: left;
+}
+
+
+.result {
+  margin-bottom: 30px;
+  margin-right: 20px ;
+  width: 30%;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 10px;
+  
+}
+
+.result img {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+button{
+
+  background-color: red;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+  color: white;
+  font-weight: bold;
+  margin: 10px 0px 10px;
+
+}
+.shoppCart{
+
+  border: solid black;
+  width: 90vw;
+  margin: 20px;
+
+}
+.item{
+  margin-bottom: 30px;
+  margin-right: 20px ;
+  width: 70%;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 10px;
+  text-align: left;
+  
+}
+
+.item img {
+  width: 30%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  
+}
+
+.itemInfo{
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.info{
+
+  padding: 40px;
+
+}
+
+.checkout{
+  margin-bottom: 30px;
+  margin: 20px ;
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 10px;
+  text-align: left;
+  
+  text-align: center;
+}
+
+.checkoutBtn{
+  padding: 10px;
+  margin: 10px;
+  font-size: larger;
+}
+
+
+
+
+
 
 .App-logo {
   height: 40vmin;
