@@ -3,7 +3,7 @@ import React from "react";
 function List({ groceries, action }) {
   return (
     <div className="groceries">
-      <h1>Grocery List</h1>
+      <h1>Featured items</h1>
       <ul className="list">
         {groceries.map((grocery, index) => (
           <div className="result">

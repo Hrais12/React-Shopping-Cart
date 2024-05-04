@@ -18,8 +18,14 @@ function App() {
 
   const removeItem = (index) => {
     const updatedCart = [...shopCart];
-    updatedCart.splice(index, 1); //return the deleted item
+    const deletedItem = updatedCart.splice(index, 1); //return the deleted item array
+    console.log(deletedItem);
+    // Calculate the difference between the current total and the price of the removed item
+    const deletedItemPrice = parseFloat(deletedItem[0].price.replace("$", ""));
+    const newTotal = total - deletedItemPrice;
     setShopCart(updatedCart); // the updated array
+    setTotal(newTotal);
+    setCount((count -= 1));
   };
 
   const totalPrice = (item) => {
