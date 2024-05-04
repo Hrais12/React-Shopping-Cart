@@ -1,22 +1,22 @@
 import React from "react";
 
-function ShoppingCart({ groceries }) {
+function ShoppingCart({ shopCart }) {
   return (
     <div className="shoppCart">
       <h1>Shopping Cart</h1>
       <ul className="cart">
-        {groceries.map((grocery, index) => (
+        {shopCart.map((cart, index) => (
           <div className="item">
             <li key={index} className="itemInfo">
-              <img src={grocery.image} alt={grocery.name} />
+              <img src={cart.image} alt={cart.name} />
               <div className="info">
                 <span>
-                  <b>{grocery.price}</b>
+                  <b>{cart.price}</b>
                   <br></br>
                 </span>
 
                 <span>
-                  {grocery.name} <br></br>
+                  {cart.name} <br></br>
                 </span>
 
                 <button>Remove</button>

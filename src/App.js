@@ -6,12 +6,16 @@ import List from "./components/List";
 import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
-  let [shopCart, setShopCart] = useState(groceries[0]);
+  let [shopCart, setShopCart] = useState([]);
+
+  const addItem = (item) => {
+    setShopCart([...shopCart, item]);
+  };
 
   return (
     <div className="App">
-      <List groceries={groceries} />
-      <ShoppingCart groceries={groceries} />
+      <List groceries={groceries} action={addItem} />
+      <ShoppingCart shopCart={shopCart} />
     </div>
   );
 }

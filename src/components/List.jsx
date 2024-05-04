@@ -1,6 +1,6 @@
 import React from "react";
 
-function List({ groceries }) {
+function List({ groceries, action }) {
   return (
     <div className="groceries">
       <h1>Grocery List</h1>
@@ -19,7 +19,7 @@ function List({ groceries }) {
                   {grocery.name} <br></br>
                 </span>
 
-                <button>Add to Cart</button>
+                <button onClick={() => action(grocery)}>Add to Cart</button>
               </div>
             </li>
           </div>
