@@ -1,11 +1,12 @@
 import React from "react";
 
-function List({ groceries, action }) {
+function List({ currentList, action, next, back }) {
   return (
     <div className="groceries">
-      <h1>Featured items</h1>
+      <h1>Based on your recent browsing</h1>
       <ul className="list">
-        {groceries.map((grocery, index) => (
+        <button onClick={back}>back</button>
+        {currentList.map((grocery, index) => (
           <div className="result">
             <li key={index}>
               <img src={grocery.image} alt={grocery.name} />
@@ -24,6 +25,7 @@ function List({ groceries, action }) {
             </li>
           </div>
         ))}
+        <button onClick={next}>next</button>
       </ul>
     </div>
   );

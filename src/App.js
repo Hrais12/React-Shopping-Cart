@@ -10,6 +10,12 @@ function App() {
   let [total, setTotal] = useState(0);
   let [count, setCount] = useState(0);
 
+  let [startIndex, setStartIndex] = useState(0);
+  let [endIndex, setendIndex] = useState(3);
+
+  let initialList = groceries.slice(startIndex, endIndex + 1);
+  let [currentList, setCurrentList] = useState(initialList);
+
   const addItem = (item) => {
     setShopCart([...shopCart, item]);
     setTotal(totalPrice(item));
@@ -36,9 +42,43 @@ function App() {
     return currentTotal + Number(item.price.replace("$", ""));
   };
 
+  const nextList = () => {
+    if (endIndex < groceries.length) {
+      setStartIndex((startIndex) => ++startIndex);
+      setendIndex((endIndex) => ++endIndex);
+      let updatedList = groceries.slice(startIndex, endIndex + 1);
+      setCurrentList(updatedList);
+    } else {
+      setStartIndex(0);
+      setendIndex(3);
+      const updatedList = groceries.slice(0, 4);
+      setCurrentList(updatedList);
+    }
+  };
+
+  const backList = () => {
+    if (endIndex > groceries.length) {
+      setStartIndex((startIndex) => --startIndex);
+      setendIndex((endIndex) => --endIndex);
+      let updatedList = groceries.slice(startIndex, endIndex + 1);
+      setCurrentList(updatedList);
+    } else {
+      setStartIndex(0);
+      setendIndex(3);
+      const updatedList = groceries.slice(0, 4);
+      setCurrentList(updatedList);
+    }
+  };
+
   return (
     <div className="App">
-      <List groceries={groceries} action={addItem} />
+      <List
+        action={addItem}
+        currentList={currentList}
+        next={nextList}
+        back={backList}
+      />
+
       <ShoppingCart
         shopCart={shopCart}
         action={removeItem}
