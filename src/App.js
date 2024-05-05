@@ -18,9 +18,24 @@ function App() {
   let [currentList, setCurrentList] = useState(initialList);
 
   const addItem = (item) => {
-    setShopCart([...shopCart, item]);
+    // Check if the item already exists in the cart
+    const existingItemIndex = shopCart.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      // If item exists, update its quantity
+      const updatedCart = [...shopCart];
+      updatedCart[existingItemIndex].quantity += 1;
+      setShopCart(updatedCart);
+    } else {
+      // If item doesn't exist, add it to the cart
+      setShopCart([...shopCart, { ...item, quantity: 1 }]);
+    }
+
+    // Update total, count, and quantity
     setTotal(totalPrice(item));
-    setCount((count += 1));
+    setCount(count + 1);
   };
 
   const removeItem = (index) => {
@@ -29,7 +44,7 @@ function App() {
     console.log(deletedItem);
     // Calculate the difference between the current total and the price of the removed item
     const deletedItemPrice = Number(deletedItem[0].price.replace("$", ""));
-    const newTotal = total - deletedItemPrice;
+    const newTotal = Math.round((total - deletedItemPrice) * 100) / 100;
     setShopCart(updatedCart); // the updated array
     setTotal(newTotal);
     setCount((count -= 1));
@@ -40,7 +55,11 @@ function App() {
     shopCart.map(
       (cart) => (currentTotal += Number(cart.price.replace("$", "")))
     );
-    return currentTotal + Number(item.price.replace("$", ""));
+
+    return (
+      Math.round((currentTotal + Number(item.price.replace("$", ""))) * 100) /
+      100
+    );
   };
 
   const nextList = () => {
@@ -70,6 +89,16 @@ function App() {
       setCurrentList(updatedList);
     }
   };
+
+  // const updateQuantity = (item) => {
+  //   const updatedCart = shopCart.map((cartItem) => {
+  //     if (cartItem.key === item.key) {
+  //       return { ...cartItem, quantity: cartItem.quantity + 1 };
+  //     }
+  //     return cartItem;
+  //   });
+  //   setShopCart(updatedCart);
+  // };
 
   return (
     <div className="App">

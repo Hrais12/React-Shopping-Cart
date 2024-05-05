@@ -19,6 +19,18 @@ function ShoppingCart({ shopCart, action, total, countItems }) {
                   {cart.name} <br></br>
                 </span>
 
+                <div className="quantity">
+                  <label>Quantity:</label>
+
+                  <input
+                    type="number"
+                    name={`quantity_${index}`}
+                    min="1"
+                    value={cart.quantity}
+                    max="10"
+                  />
+                </div>
+
                 <button onClick={() => action(index)}>Remove</button>
                 <div>
                   <label>

@@ -113,7 +113,9 @@ button{
   top:140px
 }
 
-
+.quantity{
+  margin-top: 10px;
+}
 
 
 .App-logo {
